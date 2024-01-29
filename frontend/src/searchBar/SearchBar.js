@@ -70,12 +70,6 @@ const SearchBar = () => {
         >
             <img src='./close-button-png-23.png' className="w-4" alt="Close" />
         </button>
-        <input
-            type="text"
-            value={keywords}
-            onChange={(e) => setKeywords(e.target.value)}
-            className="mb-4 text-white px-10 py-1 rounded-full border-4 border-input focus:outline-none focus:border-primary-main bg-main"
-        />
         <button
             className="absolute left-0 top-0 m-2 p-2 mt-0.5 rounded-md"
             style={{ paddingBottom: '4px' }}
@@ -87,6 +81,13 @@ const SearchBar = () => {
                 className="w-6 h-6"
             />
         </button>
+        <input
+            type="text"
+            value={keywords}
+            onChange={(e) => setKeywords(e.target.value)}
+            className="mb-4 text-white px-10 py-1 rounded-full border-4 border-input focus:outline-none focus:border-primary-main bg-main"
+        />
+        
     </div>
     <div className="mb-4 text-white">
       <button type="button" onClick={(e) => handleSearchQuery(e, "")}>
