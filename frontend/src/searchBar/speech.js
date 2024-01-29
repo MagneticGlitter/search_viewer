@@ -11,6 +11,8 @@ let recognition;
 // }
 recognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition.continuous = true;
+    recognition.lang = "en-US";
 
 const useSpeechRecognition = () => {
     const [text, setText] = useState("");
