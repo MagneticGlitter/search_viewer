@@ -99,7 +99,7 @@ const SearchBar = () => {
         <div>
           {data.map((obj, index) => (
             <a key={index} href={process.env.REACT_APP_API_URL + "?curid=" + obj.pageid} className="card-link">
-            <div className="card bg-white overflow-hidden mb-4 p-4">
+            <div className="card bg-white overflow-hidden mb-4 p-3">
               <h3 className="font-bold text-black">{obj.title}</h3>
               <p className="text-black">{obj.extract}</p>
             </div>
