@@ -1,16 +1,12 @@
 import "../index.css";
 import {useEffect, useState} from 'react';
-// import useSpeechRecognition from "./speech";
-
+// import SpeechRecogntion, { useSpeechRecognition } from 'react-speech-recognition';
+import useSpeechRecognition from "./speech";
 const SearchBar = () => {
-    // const {
-    //   text,
-    //   isListening,
-    //   startListening,
-    //   stopListening,
-    //   resetText,
-    //   hasRecognitionSupport,
-    //   } = useSpeechRecognition();
+  const {
+    text,
+    startListening
+  } = useSpeechRecognition();
 
     const [data, setData] = useState([]);
     const [keywords, setKeywords] = useState("");
@@ -53,9 +49,10 @@ const SearchBar = () => {
             console.error('Error fetching data:', error.message);
         }
     }
-    // useEffect(() => {
-    //     setKeywords(text)
-    // }, [text]);
+    useEffect(() => {
+        console.log(text);
+        setKeywords(text)
+    }, [text]);
     
     return (
 <>
@@ -79,7 +76,7 @@ const SearchBar = () => {
             onChange={(e) => setKeywords(e.target.value)}
             className="mb-4 text-white px-10 py-1 rounded-full border-4 border-input focus:outline-none focus:border-primary-main bg-main"
         />
-        {/* <button
+        <button
             className="absolute left-0 top-0 m-2 p-2 mt-0.5 rounded-md"
             style={{ paddingBottom: '4px' }}
             onClick={startListening}
@@ -89,7 +86,7 @@ const SearchBar = () => {
                 alt="Image"
                 className="w-6 h-6"
             />
-        </button> */}
+        </button>
     </div>
     <div className="mb-4 text-white">
       <button type="button" onClick={(e) => handleSearchQuery(e, "")}>
